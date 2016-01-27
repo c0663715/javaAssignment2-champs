@@ -55,7 +55,7 @@ public class Course {
 
     public void insert(Student student, int position) 
     {
-        this.students.add(position, student);
+        students.add(position, student);
     }
 
     public Student get(String id) 
@@ -96,7 +96,7 @@ public class Course {
         {
             Course temp = new Course();
             temp = (Course) o;
-            return this.students.equals(temp.students);
+            return students.equals(temp.students);
         } 
         else
             return false;

@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.Set;
 
 
-
 /**
  *
  * @author c0663965
@@ -58,14 +57,14 @@ public class Course {
     public Student get(String id) {
         Student who = new Student();
 
-        for (Student student : students) {
-            if (student.getId().equals(id)) {
-                who = student;
-
-                break;
-            } else {
-                who = null;
+        for (Student student : students)
+        {
+            if (student.getId().equals(id)) 
+            {
+                who = student; break;
             }
+            else 
+                who = null;
         }
 
         return who;
@@ -85,11 +84,14 @@ public class Course {
 
     @Override
     public boolean equals(Object o) {
-        if (o != null && o instanceof Course) {
+        if (o != null && o instanceof Course)
+        {
             Course temp = new Course();
             temp = (Course) o;
             return this.students.equals(temp.students);
-        } else {
+        } 
+        else
+        {
             return false;
         }
     }
@@ -98,10 +100,9 @@ public class Course {
     public String toString() {
         String result = "[";
 
-        for (Student student : students) {
+        for (Student student : students)
             result += student.toString() + "," + "\n";
-        }
-
+        
         result = result.substring(0, result.length() - 2) + "]";
 
         return result;
@@ -110,12 +111,10 @@ public class Course {
     public Set<Student> getAllByGender(String gender) {
         Set<Student> setByGender = new HashSet<>();
 
-        for (Student student : students) {
-            if (student.getGender().equals(gender)) {
+        for (Student student : students) 
+            if (student.getGender().equals(gender)) 
                 setByGender.add(student);
-            }
-        }
-
+            
         return setByGender;
     }
 
@@ -124,31 +123,33 @@ public class Course {
 
         String grades[] = {"A", "B", "C", "D", "F"};
         String letterGrade = "";
+        Double numericGrade;
 
-        for (String key : grades) {
+        for (String key : grades) 
+        {
             Set<Student> temp = new HashSet();
 
-            for (Student student : students) {
-                if (student.getGrade() > 90 && student.getGrade() <= 100) {
+            for (Student student : students) 
+            {
+                numericGrade=student.getGrade();
+                        
+                if (90<numericGrade && numericGrade <=100) 
                     letterGrade = "A";
-                } else if (student.getGrade() > 80 && student.getGrade() <= 90) {
+                else if (80<numericGrade && numericGrade <=90) 
                     letterGrade = "B";
-                } else if (student.getGrade() > 70 && student.getGrade() <= 80) {
+                else if (70<numericGrade && numericGrade <=80) 
                     letterGrade = "C";
-                } else if (student.getGrade() > 60 && student.getGrade() <= 70) {
+                else if (60<numericGrade && numericGrade <=70) 
                     letterGrade = "D";
-                } else {
+                else 
                     letterGrade = "F";
-                }
-
-                if (key.equals(letterGrade)) {
+                
+                if (key.equals(letterGrade))
                     temp.add(student);
-                }
             }
 
-            if (!temp.isEmpty()) {
+            if (!temp.isEmpty()) 
                 gradeMap.put(key, temp);
-            }
         }
         return gradeMap;
     }

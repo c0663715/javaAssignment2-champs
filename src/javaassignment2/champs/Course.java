@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
 /**
  *
  * @author c0663965
@@ -22,46 +21,53 @@ public class Course {
 
     private List<Student> students;
 
-    public Course() {
+    public Course()
+    {
         students = new ArrayList<>();
     }
 
-    public Course(List<Student> student) {
+    public Course(List<Student> student) 
+    {
         students = student;
     }
 
-    public void add(Student student) {
+    public void add(Student student) 
+    {
         students.add(student);
     }
 
-    public void remove(Student student) {
+    public void remove(Student student) 
+    {
         students.remove(student);
     }
 
-    public void remove(String id) {
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getId().equals(id)) {
+    public void remove(String id) 
+    {
+        for (int i = 0; i < students.size(); i++) 
+            if (students.get(i).getId().equals(id)) 
                 students.remove(i);
-            }
-        }
     }
 
-    public void remove(int position) {
+    public void remove(int position) 
+    {
         students.remove(position);
     }
 
-    public void insert(Student student, int position) {
+    public void insert(Student student, int position) 
+    {
         this.students.add(position, student);
     }
 
-    public Student get(String id) {
+    public Student get(String id) 
+    {
         Student who = new Student();
 
         for (Student student : students)
         {
             if (student.getId().equals(id)) 
             {
-                who = student; break;
+                who = student;
+                break;
             }
             else 
                 who = null;
@@ -70,20 +76,22 @@ public class Course {
         return who;
     }
 
-    public Student get(int position) {
-        if (0 <= position && position < students.size()) {
+    public Student get(int position) 
+    {
+        if (0 <= position && position < students.size()) 
             return students.get(position);
-        } else {
+        else 
             return null;
-        }
     }
 
-    public List<Student> getAll() {
+    public List<Student> getAll() 
+    {
         return students;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) 
+    {
         if (o != null && o instanceof Course)
         {
             Course temp = new Course();
@@ -91,13 +99,12 @@ public class Course {
             return this.students.equals(temp.students);
         } 
         else
-        {
             return false;
-        }
     }
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         String result = "[";
 
         for (Student student : students)
@@ -108,7 +115,8 @@ public class Course {
         return result;
     }
 
-    public Set<Student> getAllByGender(String gender) {
+    public Set<Student> getAllByGender(String gender) 
+    {
         Set<Student> setByGender = new HashSet<>();
 
         for (Student student : students) 
@@ -118,7 +126,8 @@ public class Course {
         return setByGender;
     }
 
-    public Map<String, Set<Student>> getGradeMap() {
+    public Map<String, Set<Student>> getGradeMap() 
+    {
         Map<String, Set<Student>> gradeMap = new HashMap();
 
         String grades[] = {"A", "B", "C", "D", "F"};

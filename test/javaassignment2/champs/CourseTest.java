@@ -6,6 +6,9 @@
 package javaassignment2.champs;
 
 import java.util.ArrayList;
+import static java.util.Arrays.asList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -346,11 +349,40 @@ public class CourseTest {
      */
     @Test
     public void testGetGradeMap() {
+        
         System.out.println("getGradeMap");
-        Course instance = new Course();
-        Map<String, Set<Student>> expResult = null;
-        Map<String, Set<Student>> result = instance.getGradeMap();
+        
+        Student S = new Student("Saurabh","c0666985","Male",98.95); ///A
+        Student J = new Student("Jatinder","c0666985","male",95); //A
+        Student L = new Student("Lee", "c0663965", "male", 81);//B
+        Student G = new Student("Gurivinder", "c0663715", "male",88); //B
+        
+        List<Student> list = new ArrayList<>();
+        
+        list.add(S);
+        list.add(J);
+        list.add(L);
+        list.add(G);
+        
+        Course instance = new Course(list);
+
+        Map<String, Set<Student>> expResult = new HashMap();
+        Map<String, Set<Student>> result = new HashMap();
+
+        Set<Student> gradeA = new HashSet();
+        Set<Student> gradeB = new HashSet();
+       
+        gradeA.add(S);
+        gradeA.add(J);
+        
+        gradeB.add(L);
+        gradeB.add(G);
+        
+        expResult.put("A",gradeA);
+        expResult.put("B",gradeB);
+        
+        result=instance.getGradeMap();
+       
         assertEquals(expResult, result);
     }
-    
 }

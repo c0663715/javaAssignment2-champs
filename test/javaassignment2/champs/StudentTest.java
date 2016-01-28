@@ -53,7 +53,7 @@ public class StudentTest {
     @Test
     public void testStudentGetName() {
         System.out.println("testStudentGetName");
-         String name="Jatinder";
+        String name="Jatinder";
         String id="C0663715";
         String gender="male";
         double grade=3.7; 

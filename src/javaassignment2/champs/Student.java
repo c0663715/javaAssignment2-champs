@@ -74,7 +74,8 @@ public class Student {
 
     @Override
     public String toString() {
-        return "{\"name\":\"" + getName() + "\",\"id\":\"" + getId() + "\",\"gender\":\"" + getGender() + "\",\"grade\":\"" + getGrade() + "\"}";
+        
+        return "{\"name\":\"" + getName() + "\",\"id\":\"" + getId() + "\",\"gender\":\"" + getGender() + "\",\"grade\":" + getGrade() + "}";
     }
 
 }
